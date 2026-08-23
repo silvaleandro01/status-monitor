@@ -1,8 +1,8 @@
 # Status Monitor
 
-Serviço de monitoramento de disponibilidade (estilo UptimeRobot/Instatus, simplificado): checa a saúde de URLs periodicamente, guarda histórico de uptime/incidentes e transmite o status ao vivo via WebSocket.
+Serviço de monitoramento de disponibilidade (estilo UptimeRobot/Instatus, simplificado): verifica a saúde de URLs periodicamente, guarda histórico de uptime/incidentes e transmite o status ao vivo via WebSocket.
 
-Projeto de estudo com um objetivo deliberado: usar Python e Node.js em papéis genuinamente diferentes, não como duas implementações paralelas da mesma coisa.
+Python e Node.js dividem responsabilidades por design, não por repetição: o worker (Python) cuida do processamento em lote/agendado, a API (Node) do I/O concorrente e tempo real — cada linguagem no papel onde ela é a escolha certa.
 
 ## Arquitetura
 
