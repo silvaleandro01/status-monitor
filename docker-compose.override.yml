@@ -1,0 +1,12 @@
+# Carregado automaticamente pelo `docker compose up` sempre que nenhum -f é
+# passado (comportamento padrão do Compose). Aqui ficam os ajustes só de
+# desenvolvimento: portas do Postgres/Redis expostas no host, pra rodar os
+# testes (pytest/jest) direto da máquina, fora de container.
+services:
+  postgres:
+    ports:
+      - "5433:5432"
+
+  redis:
+    ports:
+      - "6379:6379"
