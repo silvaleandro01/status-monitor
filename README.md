@@ -40,6 +40,16 @@ docker compose logs -f api      # acompanhar a API
 docker compose down             # parar tudo
 ```
 
+### Produção
+
+`docker-compose.override.yml` é carregado automaticamente em dev (expõe as portas do Postgres/Redis no host, útil pra rodar os testes fora de container). Em produção, isso não deve acontecer — só a `api` precisa ficar acessível de fora. Suba assim:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+```
+
+Passar `-f` explicitamente faz o Compose ignorar o `override.yml` de dev. O `docker-compose.prod.yml` adiciona `restart: unless-stopped` e rotação de log (`max-size: 10m`, `max-file: 3`) em todos os serviços.
+
 ## API
 
 | Método | Rota | Descrição |
